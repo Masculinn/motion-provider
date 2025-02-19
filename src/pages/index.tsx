@@ -116,7 +116,7 @@ export default function Home() {
         transition="smooth"
         elementType="div"
         duration={4}
-        className="fixed bg-[#2b75cffd] h-96 w-96 rounded-full blur-[120px] top-0 left-0  z-[999]"
+        className="fixed bg-[#2b75cffd] lg:h-96 lg:w-96 h-36 w-36 rounded-full lg:blur-[120px] blur-[80px] -top-8 -left-8 z-10"
       />
       <section
         className={cn(
@@ -134,7 +134,7 @@ export default function Home() {
             duration={1}
             delay={0}
             children={
-              <h1 className="lg:text-5xl text-3xl tracking-tighter bg-gradient-to-r from-cyan-400 to-blue-500 text-transparent bg-clip-text">
+              <h1 className="lg:text-5xl text-3xl tracking-tighter bg-linear-to-r from-cyan-400 to-blue-500 text-transparent bg-clip-text">
                 Motion Provider
               </h1>
             }
