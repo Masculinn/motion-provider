@@ -1,5 +1,4 @@
-import Image from "next/image";
-import { Geist, Geist_Mono, Inter } from "next/font/google";
+import { Geist_Mono, Inter } from "next/font/google";
 import Link from "next/link";
 import MotionContainer from "../components/MotionProvider/motion-container";
 import Head from "next/head";
@@ -12,10 +11,8 @@ import { cn } from "../lib/utils";
 import { Badge } from "../components/ui/badge";
 import MotionImage from "../components/MotionProvider/motion-image";
 import { Skeleton } from "../components/ui/skeleton";
-import { TbWorld } from "react-icons/tb";
 import { FaGithub } from "react-icons/fa";
 import { FaLinkedin, FaX } from "react-icons/fa6";
-import MotionImageQueue from "../components/MotionProvider/motion-image-queue";
 
 const cards: OverviewCardProps[] = [
   {
@@ -52,37 +49,17 @@ const animations = Array.from({ length: cards.length }).fill({
   delay: 0,
   transition: "smooth",
 } as AnimationQueueAnimationProps);
+
 const inter = Inter({ subsets: ["latin"] });
 
-const images = [
-  "/assets/projects/thumbs/agency-thumb.gif",
-  "/assets/projects/thumbs/crypto-thumb.gif",
-  "/assets/projects/thumbs/nft-thumb.gif",
-  "/assets/projects/thumbs/saas-thumb.gif",
-];
 export default function Home() {
   return (
     <>
       <Head>
         <title>Motion Provider</title>
       </Head>
-      <MotionImage
-        isDynamicallyQueued
-        totalDelay={1.6}
-        animationDuration={2.8}
-        delayLogic="sinusoidal"
-        transition="slowElastic"
-        imageUrl={
-          "https://images.unsplash.com/photo-1542401886-65d6c61db217?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-        }
-        pieces={240}
-        wrapperClassName="w-full h-screen fixed inset-0 z-0 object-cover bg-cover aspect-video will-change"
-        animations={["scaleGrowShrink", "fadeIn"]}
-        fallback={<Skeleton className="w-full h-screen fixed inset-0 z-0" />}
-      />
-
-      <nav className="relative z-50 flex items-center justify-end px-8 py-5 ">
-        <div className="flex flex-row items-center justify-center lg:gap-3 gap-2 lg:scale-100 scale-90 p-8 text-black">
+      <nav className="relative  flex items-center justify-end px-8 py-5">
+        <div className="flex flex-row items-center justify-center lg:gap-3 gap-2 lg:scale-100 scale-90 p-8 text-white">
           <Link
             href="https://www.linkedin.com/in/burak-bilen-483772227/"
             className="flex hover:text-white"
@@ -120,9 +97,7 @@ export default function Home() {
                 animationDuration={1}
                 delayLogic="sinusoidal"
                 transition="cubicElastic"
-                imageUrl={
-                  "https://cdn.buymeacoffee.com/buttons/bmc-new-btn-logo.svg"
-                }
+                imageUrl="https://cdn.buymeacoffee.com/buttons/bmc-new-btn-logo.svg"
                 pieces={64}
                 fallback={
                   <Skeleton className="lg:h-[25px] h-auto w-auto lg:w-[27px] rounded-full" />
@@ -136,30 +111,21 @@ export default function Home() {
           </Link>
         </div>
       </nav>
-      <MotionImage
-        animations={["koopRoam"]}
-        imageUrl="https://media2.giphy.com/media/xcMPVFUrFwsrbHsULg/giphy.gif"
-        delayLogic="perlin"
-        fallback={
-          <Skeleton className="h-[75px] w-[75px] absolute -top-36 -left-36 z-50" />
-        }
-        pieces={36}
-        transition="delayedSmooth"
-        animationDuration={6}
-        wrapperClassName={cn(
-          `absolute h-[75px] w-[75px] -top-36 -left-36 z-50`,
-          "hover:opacity-0"
-        )}
-        isDynamicallyQueued
+      <MotionContainer
+        mode={["fadeIn"]}
+        transition="smooth"
+        elementType="div"
+        duration={4}
+        className="fixed bg-[#2b75cffd] h-96 w-96 rounded-full blur-[120px] top-0 left-0  z-[999]"
       />
       <section
         className={cn(
-          "w-full h-screen flex flex-col justify-center items-center lg:p-48 p-12 relative gap-8",
+          "w-full h-screen flex flex-col justify-center items-center lg:p-48 p-12 relative gap-8 z-0 overflow-hidden",
           inter.className
         )}
       >
         <div className="h-auto max-w-md mx-auto justify-center flex items-center flex-col gap-2 -mt-60">
-          <Badge variant={"default"}>All Systems Active.</Badge>
+          <Badge variant="default">All Systems Active.</Badge>
           <MotionContainer
             elementType="div"
             configView={{ once: true, amount: 0.5 }}
@@ -179,7 +145,7 @@ export default function Home() {
             mode={["filterBlurIn", "fadeIn"]}
             transition="delayedCubic"
             duration={0.5}
-            className="text-center text-sm text-black font-semibold tracking-tighter"
+            className="text-center text-sm text-stone-300 font-semibold tracking-tighter"
             delay={1}
             children="Accelerate your React component animations by up to 4x with seamless
               performance and precision, built entirely in React and TypeScript
@@ -189,7 +155,7 @@ export default function Home() {
         <div className="w-full h-1/2 grid grid-cols-2 lg:gap-4 gap-2 lg:my-0 lg:px-24">
           <MotionQueue
             duration={0.5}
-            elementType={"div"}
+            elementType="div"
             delayLogic="linear"
             children={cards.map((card, index) => (
               <Card key={index} {...card} />
