@@ -11,17 +11,13 @@
   <a href="https://burakdev.com/motion-provider" target="_blank" style="margin: 2px;">
     <img alt="Documentation" src="https://img.shields.io/badge/Docs-Motion%20Provider-536af5?color=536af5&logoColor=white" style="display: inline-block; vertical-align: middle;"/>
   </a>
-  <a href="https://npmjs.com/package/motion-provider" target="_blank" style="margin: 2px;">
-    <img alt="NPM" src="https://img.shields.io/badge/npm-motion--provider-cb3837?logo=npm" style="display: inline-block; vertical-align: middle;"/>
-  </a>
   <a href="https://github.com/Masculinn/motion-provider" target="_blank" style="margin: 2px;">
     <img alt="GitHub stars" src="https://img.shields.io/github/stars/Masculinn/motion-provider?style=social"/>
   </a>
 </div>
-
 <div align="center" style="line-height: 1;">
   <a href="https://x.com/masculinnnnn" target="_blank" style="margin: 2px;">
-    <img alt="Twitter Follow" src="https://img.shields.io/badge/Twitter-@yourhandle-1DA1F2?logo=twitter" style="display: inline-block; vertical-align: middle;"/>
+    <img alt="Twitter Follow" src="https://img.shields.io/badge/Twitter-@masculinnn-1DA1F2?logo=twitter" style="display: inline-block; vertical-align: middle;"/>
   </a>
 </div>
 
@@ -44,15 +40,15 @@ With this, you can build:
 -🚀 Stunning SaaS platforms,
 
 <p align="center">
-  <img width="80%" src="https://raw.githubusercontent.com/yourusername/motion-provider/main/demo.gif">
+  <img width="80%" src="/public/assets/projects/thumbs/saas-thumb.gif">
 </p>
 -🎯 Pixel-perfect landing pages, 
 <p align="center">
-  <img width="80%" src="https://raw.githubusercontent.com/yourusername/motion-provider/main/demo.gif">
+  <img width="80%" src="/public/assets/projects/thumbs/nft-thumb.gif">
 </p>
 -💼 Portfolios that captivate clients
 <p align="center">
-  <img width="80%" src="https://raw.githubusercontent.com/yourusername/motion-provider/main/demo.gif">
+  <img width="80%" src="public/assets/projects/thumbs/agency-thumb.gif">
 </p>
 
 ...and truly, anything you imagine. No need to google for animations, No need to copy paste entire complicated components that you feel extremely confused instead here you are simply going through the engines, If you do not have idea about the animations you want to generate kindly press 'roll a dice' button and let the engines generates you fully unique animations among 21,840 animation combination.
