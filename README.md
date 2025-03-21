@@ -94,71 +94,7 @@ Key differentiators:
 
 </div>
 
-## 3. Installation
-
-```bash
-npx install motion-provider @motion-provider/core
-```
-
-### 4. Getting Started
-
-Below is a basic example demonstrating how to integrate Motion Provider into your React application:
-
-```tsx
-import React, { useState } from "react";
-import { MotionContainer, MotionQueue, useAnimation } from "motion-provider";
-import { Button } from "@/components/ui/button";
-
-export default function App() {
-  const [reverseAnimation, setReverseAnimation] = useState(false);
-  const [stopAnimation, setStopAnimation] = useState(false);
-  const animationConfig = useAnimation({
-    stopAnimation,
-    reverseAnimation,
-    recallDuration: 1,
-  });
-
-  return (
-    <MotionContainer
-      elementType="div"
-      mode={["fadeIn", "filterBlurIn"]}
-      duration={0.5}
-      className="app-container"
-    >
-      <h1>Welcome to Motion Provider</h1>
-      <MotionQueue
-        elementType="div"
-        duration={1}
-        delayLogic="linear"
-        isDynamicallyQueued
-        animations={[
-          {
-            mode: reverseAnimation
-              ? ["rotateRoll", "fadeOut"]
-              : ["rotateClockwise", "fadeIn"],
-            duration: 0.5,
-          },
-          {
-            mode: reverseAnimation
-              ? ["rotateRoll", "fadeOut"]
-              : ["rotateClockwise", "fadeIn"],
-            duration: 0.5,
-          },
-        ]}
-      >
-        <Button onClick={() => setReverseAnimation((prev) => !prev)}>
-          {reverseAnimation ? "Start Animations" : "Reverse Animations"}
-        </Button>
-        <Button onClick={() => setStopAnimation((prev) => !prev)}>
-          {stopAnimation ? "Resume Animations" : "Stop Animations"}
-        </Button>
-      </MotionQueue>
-    </MotionContainer>
-  );
-}
-```
-
-### 5. Documentation & Examples
+### 3. Documentation & Examples
 
 Motion Provider comes with comprehensive documentation to help you get the most out of its features. Explore the following resources:
 
