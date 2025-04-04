@@ -1,4 +1,4 @@
-import { AnimationKeys } from "../components/MotionProvider/types";
+import { IconType } from "react-icons";
 
 /*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+**/
 
@@ -8,7 +8,7 @@ export interface OverviewCardProps {
   title: string;
   desc: string;
   link: string;
-  icon: React.ReactNode;
+  icon: IconType;
 }
 
 /*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+**/
@@ -19,14 +19,11 @@ export interface OverviewCardProps {
 
 /* Redux Interfaces */
 
+export type ReduxCookieProps = boolean;
+
 /*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+**/
 
 /* Utils Interfaces */
-
-export type GetRandomAnimation = AnimationKeys[] | AnimationKeys | undefined;
-export interface GetRandomAnimationProps {
-  count: number;
-}
 
 /*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+**/
 
@@ -35,6 +32,14 @@ export interface GetRandomAnimationProps {
 /*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+**/
 
 /* Provider Interfaces */
+
+export interface ProviderStoreProps {
+  children: React.ReactNode;
+}
+export interface ProviderLayoutProps {
+  children: React.ReactNode;
+  className: string;
+}
 
 /*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+**/
 

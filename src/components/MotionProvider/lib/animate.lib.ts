@@ -453,30 +453,6 @@ const animations: AnimationLibraryProps = {
   },
 
   /* ------------------- Add Your Custom Animation(s) Here ------------------ */
-
-  koopRoam: {
-    initial: {
-      // "Top start" position: starting at (0,0) relative to its original position
-      x: 0,
-      y: 0,
-      scale: 1,
-      opacity: 1,
-    },
-    animate: {
-      // Define keyframes:
-      // 1. Start at top start (0,0)
-      // 2. Move to bottom end (1470, 630)
-      // 3. Return to top start and scale down to 0 (with fading out)
-      x: [0, 910, 960, 1220, 1496],
-      y: [0, 550, 420, 580, 540],
-      opacity: [1, 0.85, 0.75, 0],
-      transition: {
-        duration: 4,
-        // 'times' tells Framer Motion when (as a fraction of duration) to hit each keyframe:
-        times: [0, 0.25, 0.5, 0.75, 1],
-      },
-    },
-  },
 };
 
 export default animations;

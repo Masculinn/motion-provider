@@ -142,7 +142,10 @@ export interface ImageQueueProps {
   customDelayLogic?: (index: number) => number;
   isDynamicallyQueued?: boolean;
 }
-
+export type GetRandomAnimation = AnimationKeys[] | AnimationKeys | undefined;
+export interface GetRandomAnimationProps {
+  count: number;
+}
 export type ImageMotionFnTypes = "hover" | "click";
 
 export type DelayLogic =

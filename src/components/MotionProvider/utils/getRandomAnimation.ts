@@ -1,6 +1,9 @@
-import { GetRandomAnimation, GetRandomAnimationProps } from "../interfaces";
-import animations from "../components/MotionProvider/lib/animate.lib";
-import { AnimationKeys } from "../components/MotionProvider/types";
+import animations from "../lib/animate.lib";
+import {
+  AnimationKeys,
+  GetRandomAnimation,
+  GetRandomAnimationProps,
+} from "../types";
 
 export default function getRandomAnimation({
   count,
