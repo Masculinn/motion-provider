@@ -2,7 +2,7 @@ import React, { FC, memo, useEffect, useMemo, useState } from "react";
 import { cn } from "../../lib/utils";
 import { AnimationKeys, ImageQueueProps } from "./types/index";
 
-const ImageQueueContainer: FC<ImageQueueProps> = (props) => {
+const Container: FC<ImageQueueProps> = (props) => {
   const {
     images = [],
     controlConfig,
@@ -144,8 +144,7 @@ import MotionImage from "./motion-image";
  * @returns {JSX.Element} The rendered ImageQueueContainer component.
  */
 const MotionImageQueue = dynamic(
-  () =>
-    Promise.resolve(memo(ImageQueueContainer as typeof ImageQueueContainer)),
+  () => Promise.resolve(memo(Container as typeof Container)),
   { ssr: false }
 );
 

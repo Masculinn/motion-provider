@@ -1,15 +1,15 @@
-import MotionContainer from "../components/MotionProvider/motion-container";
-import Head from "next/head";
-import MotionQueue from "../components/MotionProvider/motion-queue";
 import {
   AnimationKeys,
   AnimationQueueAnimationProps,
-} from "../components/MotionProvider/types";
+} from "../components/motion/types";
+import MotionContainer from "../components/motion/motion-container";
+import Head from "next/head";
+import MotionQueue from "../components/motion/motion-queue";
 import { Badge } from "../components/ui/badge";
 import React from "react";
 import cardsLib from "../lib/root/cards.lib";
 import { Card } from "../components/card";
-import getRandomAnimation from "../components/MotionProvider/utils/getRandomAnimation";
+import getRandomAnimation from "../components/motion/utils/getRandomAnimation";
 
 const cardAnimations = Array.from({ length: cardsLib.length }).fill({
   mode: ["filterBlurIn", "fadeRight"],
@@ -35,8 +35,9 @@ export default function Home() {
         duration={4}
         className="fixed bg-gradient-to-br from-[#2b75cffd] via-15% to-transparent lg:h-96 lg:w-96 h-36 w-36 rounded-full lg:blur-[120px] blur-[80px] -top-8 -left-8 z-10"
       />
-      <section className="max-w-7xl mx-auto h-screen relative gap-8 z-0">
-        <div className="h-2/3 w-full justify-center flex items-center flex-col gap-2 -mt-16">
+
+      <section className="max-w-7xl mx-auto h-screen relative">
+        <div className="h-2/3 w-full justify-center flex items-center flex-col  -mt-16">
           <Badge variant="default">All Systems Active.</Badge>
           <div className="flex flex-wrap">
             <MotionQueue

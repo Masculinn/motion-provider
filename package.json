@@ -10,9 +10,12 @@
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.6.1",
+    "@types/lodash": "^4.17.16",
+    "@types/lodash-es": "^4.17.12",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "lodash": "^4.17.21",
+    "lodash-es": "^4.17.21",
     "lucide-react": "^0.475.0",
     "motion": "^12.4.2",
     "next": "^15.2.4",

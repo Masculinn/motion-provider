@@ -1,4 +1,4 @@
-import { debounce } from "lodash";
+import { debounce } from "lodash-es";
 import { useEffect, useState, useCallback } from "react";
 import { UseMotionOutputProps, UseMotionProps } from "../types";
 

@@ -10,7 +10,7 @@ import {
 import { ImageMotionProps } from "./types";
 import { cn } from "../../lib/utils";
 
-const ImageContainer: FC<ImageMotionProps> = (props) => {
+const Container: FC<ImageMotionProps> = (props) => {
   const {
     imageUrl,
     pieces = 144,
@@ -68,22 +68,22 @@ const ImageContainer: FC<ImageMotionProps> = (props) => {
         const index = row * columns + col;
 
         if (index >= 0 && index < pieces) {
-          const currentCol = index % columns;
-          const currentRow = Math.floor(index / columns);
-          const neighbors: number[] = [];
+          const currCol = index % columns;
+          const currRow = Math.floor(index / columns);
+          const n: number[] = [];
 
-          for (let r = currentRow - 1; r <= currentRow + 1; r++) {
-            for (let c = currentCol - 1; c <= currentCol + 1; c++) {
+          for (let r = currRow - 1; r <= currRow + 1; r++) {
+            for (let c = currCol - 1; c <= currCol + 1; c++) {
               if (r >= 0 && r < rows && c >= 0 && c < columns) {
-                const neighborIndex = r * columns + c;
-                if (neighborIndex < pieces) neighbors.push(neighborIndex);
+                const i = r * columns + c;
+                if (i < pieces) n.push(i);
               }
             }
           }
 
           setTriggers((prev) => ({
             ...prev,
-            ...Object.fromEntries(neighbors.map((idx) => [idx, true])),
+            ...Object.fromEntries(n.map((idx) => [idx, true])),
           }));
         }
       });
@@ -189,7 +189,7 @@ import MotionQueue from "./motion-queue";
  * @returns {JSX.Element} The rendered interactive image grid with animations.
  */
 const MotionImage = dynamic(
-  () => Promise.resolve(memo(ImageContainer as typeof ImageContainer)),
+  () => Promise.resolve(memo(Container as typeof Container)),
   { ssr: false }
 );
 export default MotionImage;

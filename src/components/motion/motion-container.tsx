@@ -11,19 +11,21 @@ import { useAnimationMixer } from "./hooks/use-animation-mixer";
 import animations from "./lib/animate.lib";
 import dynamic from "next/dynamic";
 
-const Container: FC<ViewAnimationControllerProps> = ({
-  children,
-  elementType = "div",
-  className,
-  delay = 0,
-  isAnimationStopped = false,
-  isControlled = false,
-  duration = 0.5,
-  reverse = false,
-  transition,
-  mode,
-  configView = { once: true, amount: 0.5 },
-}) => {
+const Container: FC<ViewAnimationControllerProps> = (props) => {
+  const {
+    children,
+    elementType = "div",
+    className,
+    delay = 0,
+    isAnimationStopped = false,
+    isControlled = false,
+    duration = 0.5,
+    reverse = false,
+    transition,
+    mode,
+    configView = { once: true, amount: 0.5 },
+  } = props;
+
   const ref = useRef<HTMLElement | null>(null);
   const isInView = useInView(ref, configView);
   const id = useId();
@@ -108,6 +110,7 @@ const Container: FC<ViewAnimationControllerProps> = ({
  * @param {{ once?: boolean, amount?: number }} [props.configView={ once: true, amount: 0.5 }] - View configuration for triggering animations.
  * @returns {JSX.Element} - The animated container element.
  */
+
 const MotionContainer = dynamic(
   () => Promise.resolve(memo(Container as typeof Container)),
   { ssr: false }
