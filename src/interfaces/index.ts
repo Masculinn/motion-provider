@@ -1,9 +1,8 @@
-import {
-  AnimationController,
-  AnimationKeys,
-  TransitionKeys,
-} from "../components/MotionProvider/types";
-import { UseInViewOptions } from "motion/react";
+import { AnimationKeys } from "../components/MotionProvider/types";
+
+/*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+**/
+
+/* Component Interfaces */
 
 export interface OverviewCardProps {
   title: string;
@@ -12,14 +11,33 @@ export interface OverviewCardProps {
   icon: React.ReactNode;
 }
 
-export interface AnimationQueueAnimationProps {
-  mode: AnimationKeys | AnimationKeys[];
-  reverse?: boolean;
-  className?: string;
-  isControlled?: AnimationController;
-  delay?: number;
-  isAnimationStopped?: boolean;
-  transition?: TransitionKeys;
-  duration?: number;
-  configView?: UseInViewOptions;
+/*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+**/
+
+/* Hooks Interfaces */
+
+/*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+**/
+
+/* Redux Interfaces */
+
+/*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+**/
+
+/* Utils Interfaces */
+
+export type GetRandomAnimation = AnimationKeys[] | AnimationKeys | undefined;
+export interface GetRandomAnimationProps {
+  count: number;
 }
+
+/*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+**/
+
+/* Db Interfaces */
+
+/*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+**/
+
+/* Provider Interfaces */
+
+/*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+**/
+
+/* Lib Interfaces */
+
+/*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+**/

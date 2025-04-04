@@ -3,7 +3,10 @@ import Link from "next/link";
 import MotionContainer from "../components/MotionProvider/motion-container";
 import Head from "next/head";
 import MotionQueue from "../components/MotionProvider/motion-queue";
-import { AnimationQueueAnimationProps } from "../components/MotionProvider/types";
+import {
+  AnimationKeys,
+  AnimationQueueAnimationProps,
+} from "../components/MotionProvider/types";
 import { Card as CardContainer } from "../components/ui/card";
 import { OverviewCardProps } from "../interfaces";
 import { Boxes, Code, FlaskConical, TableOfContents } from "lucide-react";
@@ -13,6 +16,10 @@ import MotionImage from "../components/MotionProvider/motion-image";
 import { Skeleton } from "../components/ui/skeleton";
 import { FaGithub } from "react-icons/fa";
 import { FaLinkedin, FaX } from "react-icons/fa6";
+import animations from "../components/MotionProvider/lib/animate.lib";
+import React, { useEffect, useRef, useState } from "react";
+import { twJoin, twMerge } from "tailwind-merge";
+import getRandomAnimation from "../utils/getRandomAnimation";
 
 const cards: OverviewCardProps[] = [
   {
@@ -41,7 +48,7 @@ const cards: OverviewCardProps[] = [
   },
 ];
 
-const animations = Array.from({ length: cards.length }).fill({
+const cardAnimations = Array.from({ length: cards.length }).fill({
   mode: ["filterBlurIn", "fadeRight"],
   duration: 0.5,
   configView: { once: false, amount: 0.5 },
@@ -50,7 +57,9 @@ const animations = Array.from({ length: cards.length }).fill({
   transition: "smooth",
 } as AnimationQueueAnimationProps);
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({ subsets: ["latin"], weight: ["400"] });
+
+const title = String("Motion Provider.").split("");
 
 export default function Home() {
   return (
@@ -58,7 +67,7 @@ export default function Home() {
       <Head>
         <title>Motion Provider</title>
       </Head>
-      <nav className="relative  flex items-center justify-end px-8 py-5">
+      <nav className="relative flex items-center justify-end px-8 py-5">
         <div className="flex flex-row items-center justify-center lg:gap-3 gap-2 lg:scale-100 scale-90 p-8 text-white">
           <Link
             href="https://www.linkedin.com/in/burak-bilen-483772227/"
@@ -112,11 +121,11 @@ export default function Home() {
         </div>
       </nav>
       <MotionContainer
-        mode={["fadeIn"]}
-        transition="smooth"
+        mode={["fadeIn", "funBlobMorph"]}
+        transition="fadeRotate"
         elementType="div"
         duration={4}
-        className="fixed bg-[#2b75cffd] lg:h-96 lg:w-96 h-36 w-36 rounded-full lg:blur-[120px] blur-[80px] -top-8 -left-8 z-10"
+        className="fixed bg-gradient-to-br from-[#2b75cffd] via-15% to-transparent lg:h-96 lg:w-96 h-36 w-36 rounded-full lg:blur-[120px] blur-[80px] -top-8 -left-8 z-10"
       />
       <section
         className={cn(
@@ -124,28 +133,42 @@ export default function Home() {
           inter.className
         )}
       >
-        <div className="h-auto max-w-md mx-auto justify-center flex items-center flex-col gap-2 -mt-60">
+        <div className="h-auto max-w-max mx-auto justify-center flex items-center flex-col gap-2 -mt-60">
           <Badge variant="default">All Systems Active.</Badge>
-          <MotionContainer
-            elementType="div"
+          <div className="flex flex-wrap">
+            <MotionQueue
+              isDynamicallyQueued
+              className="lg:text-8xl text-3xl tracking-tighter font-extralight px-1 text-transparent bg-clip-text bg-linear-to-b from-white to-transparent"
+              animations={title.map((_) => {
+                return {
+                  mode: getRandomAnimation({ count: 1 }) as AnimationKeys[],
+                  transition: "cubicFastEnd",
+                  duration: 2,
+                };
+              })}
+              elementType={"span"}
+              duration={0.25}
+              delayLogic="linear"
+              children={title}
+            />
+          </div>
+          {/* <MotionContainer
+            elementType="h1"
             configView={{ once: true, amount: 0.5 }}
             mode={["filterBlurIn", "fadeUp"]}
             transition="smooth"
             duration={1}
             delay={0}
-            children={
-              <h1 className="lg:text-5xl text-3xl tracking-tighter bg-linear-to-r from-cyan-400 to-blue-500 text-transparent bg-clip-text">
-                Motion Provider
-              </h1>
-            }
-          />
+            className=""
+            children={"Motion Provider"}
+          /> */}
           <MotionContainer
             elementType="h1"
             configView={{ once: true, amount: 0.5 }}
             mode={["filterBlurIn", "fadeIn"]}
             transition="delayedCubic"
             duration={0.5}
-            className="text-center text-sm text-stone-300 font-semibold tracking-tighter"
+            className="text-center text-sm text-stone-300 font-semibold tracking-tighter max-w-md"
             delay={1}
             children="Accelerate your React component animations by up to 4x with seamless
               performance and precision, built entirely in React and TypeScript
@@ -160,7 +183,7 @@ export default function Home() {
             children={cards.map((card, index) => (
               <Card key={index} {...card} />
             ))}
-            animations={animations as AnimationQueueAnimationProps[]}
+            animations={cardAnimations as AnimationQueueAnimationProps[]}
             isDynamicallyQueued
           />
         </div>
